@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    // border: 1px solid black;
+}
+
+body {
+    transition: background-color 2s ease-in-out;
+}
+
+#wrapper {
+    width: 400px;
+    margin: 100px auto 100px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#text,
+#author {
+    transition: opacity 1s;
+}
+
+.fadeIn {
+    opacity: 1
+}
+
+.fadeOut {
+    opacity: 0
+}
+
+#text {
+    font-style: italic;
+}
+
+#text {
+    font-size: 150%;
+}
+
+#author {
+    text-align: right;
+    margin: 20px 0px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-twitter {
+    color: #1DA1F2;
+    display: block;
+    height: 30px;
+}
+
+#new-quote {
+    height: 30px;
+    font-size: 75%;
+    padding: 7px;
+    border-radius: 5px;
+    color: white;
+    border-style: none;
+    transition: background-color 2s ease-in-out;
+}
