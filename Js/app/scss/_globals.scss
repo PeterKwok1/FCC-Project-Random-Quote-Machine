@@ -2,45 +2,30 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    // border: 1px solid black;
+    transition: background-color 2s linear, opacity 1s;
+    border: 1px dotted rgba(255, 0, 0, 0.516);
 }
 
-body {
-    transition: background-color 2s ease-in-out;
-}
-
-#wrapper {
+#quote-box {
     width: 400px;
-    margin: 100px auto 100px auto;
+    margin: 10% auto 0 auto;
     padding: 25px;
     background-color: white;
     border-radius: 5px;
 }
 
-#text,
-#author {
-    transition: opacity 1s;
-}
-
-.fadeIn {
-    opacity: 1
-}
-
-.fadeOut {
-    opacity: 0
-}
-
 #text {
     font-style: italic;
-}
-
-#text {
     font-size: 150%;
 }
 
 #author {
     text-align: right;
     margin: 20px 0px;
+}
+
+.fadeOut {
+    opacity: 0
 }
 
 .buttons {
@@ -62,5 +47,12 @@ body {
     border-radius: 5px;
     color: white;
     border-style: none;
-    transition: background-color 2s ease-in-out;
+}
+
+#by {
+    font-style: italic;
+    font-size: x-small;
+    text-align: center;
+    margin: 5px auto 10% auto;
+    color: white
 }
