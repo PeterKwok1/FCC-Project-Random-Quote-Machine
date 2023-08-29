@@ -17,44 +17,33 @@ function newQuote() {
     const quotePair = quotes[Math.floor(Math.random() * quotes.length)]
     const quote = quotePair['quote']
     const author = quotePair['author']
-
     // select color
     function rndRGB() {
         return Math.floor(Math.random() * 192)
     }
     const color = `rgba(${rndRGB()}, ${rndRGB()}, ${rndRGB()}, 0.75)`
-
     // fade quote and change color 
-    const textTag = document.querySelector('#text')
-    const authorTag = document.querySelector('#author')
+    const textTag = $('#text')
+    const authorTag = $('#author')
     function fadeIn() {
-        textTag.textContent = `"${quote}"`
-        authorTag.textContent = `- ${author}`
-        textTag.classList.toggle('fadeOut')
-        authorTag.classList.toggle('fadeOut')
-        // change text color after fadeout
-        textTag.setAttribute('style', `color: ${color}`)
-        authorTag.setAttribute('style', `color: ${color}`)
+        textTag.text(`"${quote}"`).toggleClass('fadeOut').css('color', color)
+        authorTag.text(`- ${author}`).toggleClass('fadeOut').css('color', color)
     }
     function fadeOut() {
-        textTag.classList.toggle('fadeOut')
-        authorTag.classList.toggle('fadeOut')
+        textTag.toggleClass('fadeOut')
+        authorTag.toggleClass('fadeOut')
     }
-    if (textTag.textContent === '' && authorTag.textContent === '') {
+    if (textTag.text() === '' && authorTag.text() === '') {
         fadeIn()
     } else {
         fadeOut()
         setTimeout(fadeIn, 1000)
     }
-    const body = document.querySelector('body')
-    const newQuoteBtn = document.querySelector('#new-quote')
-    body.setAttribute('style', `background-color: ${color}`)
-    newQuoteBtn.setAttribute('style', `background-color: ${color}`)
+    $('body').css('background-color', color)
+    $('#new-quote').css('background-color', color)
     // change tweek link
-    const tweetBtn = document.querySelector('#tweet-quote')
-    tweetBtn.setAttribute('href', `https://twitter.com/intent/tweet?text="${quote}" - ${author}`)
+    $('#tweet-quote').attr('href', `https://twitter.com/intent/tweet?text="${quote}" - ${author}`)
 }
 
 // add button 
-const newQuoteBtn = document.querySelector('#new-quote')
-newQuoteBtn.addEventListener('click', newQuote)
+$('#new-quote').click(() => { newQuote() }) 
